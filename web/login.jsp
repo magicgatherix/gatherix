@@ -24,17 +24,12 @@
         <div class="container">
         <form action="LoginServlet">
             <div class="">
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nickname">
+                <input name="name" type="email" class="form-control" id="exampleInputEmail1" placeholder="Nickname">
             
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                 <button type="submit"  class="btn btn-primary btn-lg btn-block">Login</button>
             </div>
-            
 
-           
-                
-            
-            
         </form>
         </center>
     </body>
