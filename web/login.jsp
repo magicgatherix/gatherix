@@ -22,7 +22,7 @@
     </head>
     <body>
         <div class="container">
-        <form>
+        <form action="LoginServlet">
             <div class="">
                 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nickname">
             
