@@ -13,6 +13,13 @@ body{
     background-size: cover;
 }
 
+.invalidLogin
+{
+    
+     background-image: url('../IMG/invalidLogin.jpg');
+    background-size: cover;
+}
+
 .container{
     width:50% !important;
     position: fixed;

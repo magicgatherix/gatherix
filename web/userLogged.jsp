@@ -1,6 +1,6 @@
 <%-- 
-    Document   : home
-    Created on : 11.04.2016, 08:30:04
+    Document   : userLogged
+    Created on : 26.04.2016, 09:20:18
     Author     : Dominik
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Home</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <input type="text" placeholder="Search" onchange="search()">
     </body>
 </html>
