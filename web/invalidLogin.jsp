@@ -19,5 +19,15 @@
     </head>
     <body>
         <h1 align="center" style="color:darkred;" class="invalidLogin">Invalid Login</h1>
+        <form action="LoginServlet" method="get">
+            
+            <input type="text" placeholder="Filter" onchange="filter();">
+            <table>
+                <td>
+                    <% %>
+                </td>
+            </table>
+        
+        </form>
     </body>
 </html>

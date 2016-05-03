@@ -13,5 +13,8 @@
     </head>
     <body>
         <input type="text" placeholder="Search" onchange="search()">
+        <table>
+            
+        </table>
     </body>
 </html>
