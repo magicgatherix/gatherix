@@ -5,6 +5,10 @@
  */
 package database;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.LinkedList;
 
 /**
@@ -12,7 +16,7 @@ import java.util.LinkedList;
  * @author Nico
  */
 public class DBAccess {
-    
+
     private static DBAccess theInstance = null;
     private DBConnectionPool conPool = null;
 
@@ -26,16 +30,12 @@ public class DBAccess {
     private DBAccess() throws ClassNotFoundException {
         conPool = DBConnectionPool.getInstance();
     }
-    
+
     public static void main(String[] args) {
 
         try {
             DBAccess dba = DBAccess.getInstance();
-            
 
-            
-
-           
         } catch (ClassNotFoundException ex) {
             System.out.println(ex.toString());
         } catch (Exception ex) {
@@ -43,5 +43,30 @@ public class DBAccess {
         }
 
     }
-    
+
+    public void getCard(Connection con) {
+        Statement stmt = null;
+        String query = "";
+        try {
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                String cardname = rs.getString("NAME");
+                String edition = rs.getString("ED");
+                String type = rs.getString("TYPE");
+                int manaCost = rs.getInt("MANA COST");
+                String rarity = rs.getString("R");
+                
+            }
+            stmt.close();
+        } catch (SQLException e) {
+            e.toString();
+        } finally {
+            if (stmt != null) {
+                
+            }
+        }
+    }
 }
+
+
