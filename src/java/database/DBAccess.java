@@ -5,6 +5,7 @@
  */
 package database;
 
+import beans.Card;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -56,6 +57,7 @@ public class DBAccess {
                 String type = rs.getString("TYPE");
                 int manaCost = rs.getInt("MANA COST");
                 String rarity = rs.getString("R");
+                Card card = new Card(cardname,edition,type,manaCost,rarity);
                 
             }
             stmt.close();

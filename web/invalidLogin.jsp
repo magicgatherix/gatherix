@@ -4,6 +4,8 @@
     Author     : Dominik
 --%>
 
+<%@page import="beans.Card"%>
+<%@page import="java.util.LinkedList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,16 +20,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </head>
     <body>
+         
         <h1 align="center" style="color:darkred;" class="invalidLogin">Invalid Login</h1>
-        <form action="LoginServlet" method="get">
-            
-            <input type="text" placeholder="Filter" onchange="filter();">
-            <table>
-                <td>
-                    <% %>
-                </td>
-            </table>
-        
-        </form>
     </body>
 </html>

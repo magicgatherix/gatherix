@@ -5,10 +5,7 @@
  */
 package database;
 
-/**
- *
- * @author Julia
- */
+
 public interface DBConfig {
     
     public static final String DB_NAME = "gatherix";

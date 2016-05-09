@@ -5,7 +5,6 @@
  */
 package beans;
 
-import java.awt.Image;
 
 /**
  *
@@ -20,8 +19,11 @@ public class Card {
     private int strength;
     private int toughness;
     private int manacost;
-    private Image img;
 
+    public Card(String cardname, String edition, String type, int manaCost, String rarity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+ 
     public String getName() {
         return name;
     }
@@ -78,15 +80,8 @@ public class Card {
         this.manacost = manacost;
     }
 
-    public Image getImg() {
-        return img;
-    }
 
-    public void setImg(Image img) {
-        this.img = img;
-    }
-
-    public Card(String name, String text, String color1, String color2, int strength, int toughness, int manacost, Image img) {
+    public Card(String name, String text, String color1, String color2, int strength, int toughness, int manacost) {
         this.name = name;
         this.text = text;
         this.color1 = color1;
@@ -94,7 +89,6 @@ public class Card {
         this.strength = strength;
         this.toughness = toughness;
         this.manacost = manacost;
-        this.img = img;
     }
     
 }

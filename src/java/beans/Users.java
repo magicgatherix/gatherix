@@ -56,7 +56,8 @@ public class Users {
         username = newUsername;
     }
 
-    public boolean isValid() {
+    public boolean isValid() 
+    {
         return valid;
     }
 
