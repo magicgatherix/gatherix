@@ -22,17 +22,14 @@
         <%!  LinkedList<Card> liCards = new LinkedList<>();%>
         <input type="text" placeholder="Search" onchange="search()">
         <table>
-            <%for (Card c : liCards) {
-                    BufferedImage img = null;
-                    try {%>
-            <td><%img = ImageIO.read(new File(c.getName() + "jpg"));%></td>
-            
-            <%} catch (IOException e)
-            {
-}
+            <%for (Card c : liCards) {%>
+            <td>
+                <img src = "../IMG/<%=c.getName() + ".jpg"%>">
 
-            }%>
-            
+                <%}%></td>
+
+
+
         </table>
     </body>
 </html>
