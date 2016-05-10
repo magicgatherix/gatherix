@@ -8,15 +8,16 @@ and open the template in the editor.
     Author     : Dominik
 */
 
-body{
+
+.login{
     background-image: url('../IMG/background.png');
     background-size: cover;
 }
 
 .invalidLogin
 {
-    
-     background-image: url('../IMG/invalidLogin.jpg');
+
+    background-image: url('../IMG/invalidLogin.jpg');
     background-size: cover;
 }
 
