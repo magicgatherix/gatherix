@@ -5,33 +5,67 @@
  */
 package servlet;
 
-import beans.Card;
-import beans.Users;
+import database.DBConnectionPool;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Dominik
+ * @author Nico
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
-public class LoginServlet extends HttpServlet {
-    
-    
+@WebServlet(name = "Register", urlPatterns = {"/Register"})
+public class Register extends HttpServlet {
 
-    
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            response.setContentType("text/html;charset=UTF-8");
+            
+            
+
+            String name = request.getParameter("name");
+            String email = request.getParameter("email");
+            String pass = request.getParameter("pass");
+            try {
+
+                //loading drivers for mysql
+                Class.forName("com.mysql.jdbc.Driver");
+
+                //creating connection with the database 
+                Connection con = DBConnectionPool.getInstance().getConnection();
+
+                PreparedStatement ps = con.prepareStatement("insert into user values(?,?,?)");
+
+                ps.setString(1, name);
+                ps.setString(2, email);
+                ps.setString(3, pass);
+                int i = ps.executeUpdate();
+
+                if (i > 0) {
+                    out.println("You are sucessfully registered");
+                }
+
+            } catch (Exception se) {
+                se.printStackTrace();
+            }
         }
     }
 
@@ -47,23 +81,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-
-            Users user = new Users(request.getParameter("name"), request.getParameter("password"));
-
-            if (user.isValid()) {
-
-                HttpSession session = request.getSession(true);
-                session.setAttribute("currentSessionUser", user);
-                response.sendRedirect("userLogged.jsp"); //logged-in page      		
-            } else {
-                response.sendRedirect("invalidLogin.jsp"); //error page 
-            }
-        } catch (Throwable theException) {
-            System.out.println(theException);
-        }
+        processRequest(request, response);
     }
-//        processRequest(request, response);
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -87,6 +106,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
+
     }// </editor-fold>
 
 }
