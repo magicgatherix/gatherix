@@ -54,6 +54,8 @@ public class Register extends HttpServlet {
 
                 PreparedStatement ps = con.prepareStatement("insert into user values(?,?,?)");
 
+                
+                
                 ps.setString(1, name);
                 ps.setString(2, email);
                 ps.setString(3, pass);
