@@ -7,9 +7,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-   <head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="css/styles.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <title>Home</title>
-   </head>
+    </head>
     <body>
         <div class="header">
             <img src="IMG/background.png">
@@ -29,22 +29,29 @@
             <h1>Standard</h1>
             <div class="standardcards">
                 <div>
-                    <img src ="HomeIMG/ori.png">
+                    <a href="deckBuild.jsp?name=ori ">
+                        <img src ="HomeIMG/ori.png">
+                    </a> 
                     <p>Origins</p>
                 </div>
                 <div>
-                    <img src ="HomeIMG/bfz.png">
+                    <a href="deckBuild.jsp?name=bfz " name="bfz">
+                        <img src ="HomeIMG/bfz.png">
+                    </a>
                     <p>Battle for Zendikar</p>
                 </div>
                 <div>
-                    <img src ="HomeIMG/ogw.png">
+                    <a href="deckBuild.jsp?name=ogw " name="ogw"> 
+                        <img src ="HomeIMG/ogw.png">
+                    </a> 
                     <p>Oath of the Gatewatch</p>
                 </div>
                 <div>
-                    <img src ="HomeIMG/ini.png">
+                    <a href="deckBuild.jsp?name=ini " name="ini"> 
+                        <img src ="HomeIMG/ini.png">
+                    </a> 
                     <p>Shadow over Innistrad</p>
                 </div>
-                
             </div>
         </div>
     </body>
