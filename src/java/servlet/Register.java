@@ -43,11 +43,14 @@ public class Register extends HttpServlet {
 
             String name = request.getParameter("name");
             String email = request.getParameter("email");
-            String pass = request.getParameter("pass");
-            try {
+            String pass = request.getParameter("password");
+            String passCon = request.getParameter("passwordConfirm");
+            
+            System.out.println(""+name+email+pass);
+            
 
                 //loading drivers for mysql
-                Class.forName("com.mysql.jdbc.Driver");
+                
 
                 //creating connection with the database 
                 Connection con = DBConnectionPool.getInstance().getConnection();
@@ -69,7 +72,7 @@ public class Register extends HttpServlet {
                 se.printStackTrace();
             }
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

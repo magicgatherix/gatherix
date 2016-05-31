@@ -31,7 +31,7 @@
                             <h3 class="panel-title">Register here!</h3>
                         </div>
                         <div class="panel-body">
-                            <form method="get" action="Register.java"role="form">
+                            <form method="post" action="Register.java"role="form">
                                 <div class="form-group">
                                  
                                         <div class="form-group">
