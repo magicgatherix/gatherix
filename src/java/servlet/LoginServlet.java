@@ -23,10 +23,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
-    
-    
 
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -47,21 +44,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
 
-            Users user = new Users(request.getParameter("name"), request.getParameter("password"));
-
-            if (user.isValid()) {
-
-                HttpSession session = request.getSession(true);
-                session.setAttribute("currentSessionUser", user);
-                response.sendRedirect("userLogged.jsp"); //logged-in page      		
-            } else {
-                response.sendRedirect("invalidLogin.jsp"); //error page 
-            }
-        } catch (Throwable theException) {
-            System.out.println(theException);
-        }
     }
 //        processRequest(request, response);
 
@@ -77,6 +60,22 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        try {
+            //Überprüfen ob der User in der Datenbank eingetragen ist mit den eingebenen login Daten
+
+            Users user = new Users(request.getParameter("name"), request.getParameter("password"));
+
+            if (user.isValid()) {
+
+                HttpSession session = request.getSession(true);
+                session.setAttribute("currentSessionUser", user);
+                response.sendRedirect("home.jsp"); //logged-in page      		
+            } else {
+                response.sendRedirect("invalidLogin.jsp"); //error page 
+            }
+        } catch (Throwable theException) {
+            System.out.println(theException);
+        }
     }
 
     /**
