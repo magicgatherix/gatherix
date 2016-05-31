@@ -7,10 +7,13 @@ package database;
 
 import beans.Card;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -43,6 +46,28 @@ public class DBAccess {
             System.out.println(ex.toString());
         }
 
+    }
+    
+    public void addUser(String username, String email, String password)
+    {
+        try {
+            Connection con = conPool.getConnection();
+            
+            PreparedStatement ps = con.prepareStatement("insert into nuser (username,password,email) values(?,?,?)");
+            
+            
+            
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ps.setString(3, email);
+            int i = ps.executeUpdate();
+            
+            if (i > 0) {
+                System.out.println("You are sucessfully registered");
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+        }
     }
 
     public void getCard(Connection con) {

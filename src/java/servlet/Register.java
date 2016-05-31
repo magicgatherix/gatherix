@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import database.DBAccess;
 import database.DBConnectionPool;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,33 +42,17 @@ public class Register extends HttpServlet {
             
             
 
-            String name = request.getParameter("name");
+            String name = request.getParameter("username");
             String email = request.getParameter("email");
             String pass = request.getParameter("password");
             String passCon = request.getParameter("passwordConfirm");
             
-            System.out.println(""+name+email+pass);
             
-
-                //loading drivers for mysql
-                
-
-                //creating connection with the database 
-                Connection con = DBConnectionPool.getInstance().getConnection();
-
-                PreparedStatement ps = con.prepareStatement("insert into user values(?,?,?)");
-
-                
-                
-                ps.setString(1, name);
-                ps.setString(2, email);
-                ps.setString(3, pass);
-                int i = ps.executeUpdate();
-
-                if (i > 0) {
-                    out.println("You are sucessfully registered");
-                }
-
+            if(pass.equals(passCon))
+            {
+                DBAccess.getInstance().addUser(name, email, passCon);
+            }
+           
             } catch (Exception se) {
                 se.printStackTrace();
             }
